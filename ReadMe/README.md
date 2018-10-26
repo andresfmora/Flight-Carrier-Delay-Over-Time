@@ -26,7 +26,7 @@ This greatly improves the usability/impact of the visualization as one can now h
 
 ![enter image description here](https://lh3.googleusercontent.com/82U5tOmI2RbDnXQXywsLIbP0KlO9AJhr8WjTSAZ9JtQE8CigK5GKFM1XY1nM9bw5SBL_grQSlhTltQ "Regression")
 
-
+**Final Graphic**
 ![enter image description here](https://lh3.googleusercontent.com/LL11QqBIfKyj5kB5qZzGxFxqQ5kSG2rPUtd8QFOV5kHdkihR_qwRBZ9mi3uMCudYjYHN-k-QJf_5RA "Final")
 
 # Resources 
