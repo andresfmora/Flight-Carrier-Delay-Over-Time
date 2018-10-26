@@ -27,35 +27,6 @@ This greatly improves the usability/impact of the visualization as one can now h
 ![enter image description here](https://lh3.googleusercontent.com/82U5tOmI2RbDnXQXywsLIbP0KlO9AJhr8WjTSAZ9JtQE8CigK5GKFM1XY1nM9bw5SBL_grQSlhTltQ "Regression")
 
 
-# Feedback 
-- Feedback Round 1: Jackie (Fiance)
-
-I started collecting feedback from my Fiance starting with graph below. Her immediate feedback was that there were to many lines to makes sense of the data which makes it hard for you to follow one line or compare and contrast more than one line.
-
-![enter image description here](https://lh3.googleusercontent.com/GJYFmnpEWpKD92d3gLYTF1_0oD-fbScIpd5JBRsjZz-mBeEthqKmv3epM3Q9a6164KJTuLRtaZ3bBQ "Round 1")
-
-Based on this, I went ahead and added a interactive legend which lets you filter down and look at one or a few airlines at a time.
-
-- Feedback Round 2: Brian(Friend)
-
-After making updates to visualization based on round 1, I showed this visualization seen below to my friend Brian. He found it interesting but wished it was easier to see the over trend of the data as right now it looks like the airlines might be flat but hard to tell if there is an overall trend.
-
-![enter image description here](https://lh3.googleusercontent.com/s_r5yW89mA77waKkcWo1nT5CKHE82XS9qKFIhhwZ5GLsdJ9hDiJ8sY28pit6Hrf6DuZ-jkixsLk1-g "Round 2")
-
-
-Based on this feedback, I went back to my python data munging file and added a linear regression line on the full dataset using Sklearn. This line ends up adding a lot of context to the visualization as it highlights the overall upward trend of the data and also let's one see if an airline is generally above or below this best fit line. 
-- Feedback Round 3: John (Co-Worker)
-
-After adding the best fit line, I showed the visualization below to my coworker John. He liked the visualization but what became apparent is that it is not immediately obvious what it is you are looking at. It always took some time explaining what the visualization was showing. 
-
-![enter image description here](https://lh3.googleusercontent.com/V6PF7j84hLJlLkipd9zOkMeDZ6Hucydgpu13-TigspSSnOwon_bfydpbqRkQujO7zE4IHiRzdtrq7Q "Round3")
-
-Based on this I added a title a brief description of what the visualization is showing. I also used a bit of CSS in order to control color/font/size. 
-
-- Final
-
-After these rounds of feedback I am left with my final visualization shown below!
-
 ![enter image description here](https://lh3.googleusercontent.com/LL11QqBIfKyj5kB5qZzGxFxqQ5kSG2rPUtd8QFOV5kHdkihR_qwRBZ9mi3uMCudYjYHN-k-QJf_5RA "Final")
 
 # Resources 
