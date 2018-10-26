@@ -1,0 +1,84 @@
+<head>
+  <script src="http://d3js.org/d3.v4.min.js"></script>
+  <script src="http://dimplejs.org/dist/dimple.v2.3.0.min.js"></script>
+  <title>Average Carrier Delay by Airline Over Time</title>
+ <style>
+h3 {
+    color: darkblue;
+    font-family: Bookman;
+    font-size: 110%;
+}
+p  {
+    color: black;
+    font-family: Verdana;
+    font-size: 70%;
+}
+</style>
+</head>
+
+<body>
+<h3>Average Carrier Delay by Airline Over Time</h3>
+<p>Average Carrier Delay is defined as average departure delay, 
+in minutes, which was caused by something NOT outside of the Carriers Control</p>
+<p>Key Takeaways: There is a clear upward trend for more carrier delay over time.
+One can also see some airlines doing much better than others in regards to this metric</p>
+<p>Note:Click on legend to hide/highlight carriers one at a time</p>
+<div id="chartContainer">
+  <script type="text/javascript">
+    var svg = dimple.newSvg("#chartContainer", 900, 600);
+    d3.csv("FlightData.csv", function (data) {
+      
+      var myChart = new dimple.chart(svg, data);
+      myChart.setBounds(60, 30, 600, 305);
+      
+      // add x legend at 6 month intervals
+      var x = myChart.addTimeAxis("x", "Date","%Y-%m-%d", "%b %y");
+      x.timePeriod = d3.timeMonth;
+      x.timeInterval = 6;
+      
+      // add y axis
+      myChart.addMeasureAxis("y", "Average Carrier Delay");
+      myChart.addSeries("Carrier Name", dimple.plot.line);
+      
+      var myLegend = myChart.addLegend(0, 385, 700, 100, "bottom");
+      
+      myChart.draw();
+      
+      // add interactive legend
+      myChart.legends = [];
+      // Get a unique list of carrier values to use when filtering
+      var filterValues = dimple.getUniqueValues(data, "Carrier Name");
+      // Get all the rectangles from our now orphaned legend
+      myLegend.shapes.selectAll("rect")
+      // Add a click event to each rectangle
+          .on("click", function (e) {
+            // This indicates whether the item is already visible or not
+            var hide = false;
+            var newFilters = [];
+            // If the filters contain the clicked shape hide it
+            filterValues.forEach(function (f) {
+              if (f === e.aggField.slice(-1)[0]) {
+                hide = true;
+              } else {
+                newFilters.push(f);
+              }
+            });
+            // Hide the shape or show it
+            if (hide) {
+              d3.select(this).style("opacity", 0.2);
+            } else {
+              newFilters.push(e.aggField.slice(-1)[0]);
+              d3.select(this).style("opacity", 0.8);
+            }
+            // Update the filters
+            filterValues = newFilters;
+            // Filter the data
+            myChart.data = dimple.filterData(data, "Carrier Name", filterValues);
+            // Passing a duration parameter makes the chart animate. Without
+            // it there is no transition
+            myChart.draw(800);
+         });
+    });
+  </script>
+  </div>
+</body>
